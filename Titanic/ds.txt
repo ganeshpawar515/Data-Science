@@ -1,0 +1,32 @@
+the slicing in pd is inclusive
+
+mr_filter=titanic["Name"].str.contains('Mr', na=False)
+print(titanic["Name"].str.lower())
+
+data = {
+    "first":["John","Corey","tony"],
+    "last":["Doe","Scaffer","stark"]
+}
+
+df=pd.DataFrame(data)
+
+# print(df)
+# print(df.apply(min))
+filt=df["first"].str.contains("John")
+print(df.loc[filt,"last"])
+
+
+print(df.applymap(len))#apply to each element instead of whole row and column
+
+#replace
+print(df["first"].replace({"John":"hon"}))
+
+#rename column
+# titanic.rename(columns={'Ticket':"TicketNo"},inplace=True)
+
+#Add column
+df['email']=["a","2","3"]
+df["lastEmail"]=df["last"]+' '+df["email"]
+
+#Remove column
+df.drop(columns=['email',"lastEmail"],inplace=True)
