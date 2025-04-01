@@ -75,3 +75,25 @@ colors = ["#ff9999","#66b3ff","#99ff99"]
 plt.title("Passengers by Embarking Port")
 plt.pie(values, labels=labels,wedgeprops={"edgecolor":"black"},autopct="%1.1f%%",shadow=True,explode=[0.1,0,0],colors=colors    )
 plt.show()
+
+
+#@Visualize Line:Fares for different age groups
+ages=[x for x in range(1,100) if x%10==0]
+print("Ages",ages)
+def get_fare():
+    fares=[]
+    for age in ages:
+        avg_fare=titanic[titanic["Age"]<=age]["Fare"].median()
+        fares.append(float(round(avg_fare,2)))
+    return fares
+
+fares=get_fare()
+
+plt.title("Fares for Different Age Groups")
+plt.xlabel("Ages upto")
+plt.ylabel("Fare")
+plt.grid(True)
+plt.tight_layout()
+plt.plot(ages,fares, marker='o', linewidth=2,linestyle='-',label="Median Fare")
+plt.legend()
+plt.show()
