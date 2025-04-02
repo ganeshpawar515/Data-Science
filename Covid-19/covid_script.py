@@ -7,7 +7,7 @@ covid = pd.read_csv("covid_worldwide.csv")
 
 # print(covid)
 #@Visualize:Pie avg total deaths/total recovered
-#country=["Japan","China","India","USA"]
+country=["Japan","China","India","USA"]
 
 death_recovered_df = covid.dropna()
 death_recovered_df["Total Deaths"]=death_recovered_df["Total Deaths"].str.replace(",","").astype(int)
@@ -24,7 +24,7 @@ colors=["#ff9999","#99ff99"]
 plt.title("Total Covid Death and Recovered Cases World Wide")
 plt.pie(slices,labels=labels,colors=colors,autopct="%1.1f%%")
 plt.show()
-'''
+
 #@Visualize:Bar covid cases in countries
 total_cases=[]
 
@@ -43,7 +43,7 @@ plt.ylabel("Total Cases")
 plt.xlabel("Country")
 plt.tight_layout()
 plt.show()
-'''
+
 
 
 
